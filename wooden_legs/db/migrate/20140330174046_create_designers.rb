@@ -9,7 +9,7 @@ class CreateDesigners < ActiveRecord::Migration
       t.string :postal_code
       t.string :email
       t.string :phone
-      t.reference :province_id
+      t.reference :province
 
       t.timestamps
     end

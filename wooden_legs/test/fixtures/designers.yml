@@ -9,7 +9,7 @@ one:
   postal_code: MyString
   email: MyString
   phone: MyString
-  province_id: 
+  province: 
 
 two:
   company: MyString
@@ -20,4 +20,4 @@ two:
   postal_code: MyString
   email: MyString
   phone: MyString
-  province_id: 
+  province: 
