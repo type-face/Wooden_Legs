@@ -5,13 +5,13 @@ one:
   description: MyString
   price: 9.99
   stock_quantity: 1
-  category_id: 
-  designer_id: 
+  category: 
+  designer: 
 
 two:
   name: MyString
   description: MyString
   price: 9.99
   stock_quantity: 1
-  category_id: 
-  designer_id: 
+  category: 
+  designer: 
