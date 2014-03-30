@@ -1,2 +1,3 @@
 class OrderStatusController < ApplicationController
+  
 end

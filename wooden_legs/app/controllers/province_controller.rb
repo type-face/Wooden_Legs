@@ -1,2 +1,3 @@
 class ProvinceController < ApplicationController
+  
 end
