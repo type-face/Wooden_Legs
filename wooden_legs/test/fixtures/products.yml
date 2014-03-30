@@ -5,6 +5,7 @@ one:
   description: MyString
   price: 9.99
   stock_quantity: 1
+  image_src: MyString
   category: 
   designer: 
 
@@ -13,5 +14,6 @@ two:
   description: MyString
   price: 9.99
   stock_quantity: 1
+  image_src: MyString
   category: 
   designer: 
