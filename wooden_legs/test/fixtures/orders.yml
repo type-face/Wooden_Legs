@@ -4,12 +4,12 @@ one:
   pst_rate: 9.99
   gst_rate: 9.99
   hst_rate: 9.99
-  order_status_id: 
-  customer_id: 
+  status: 
+  customer: 
 
 two:
   pst_rate: 9.99
   gst_rate: 9.99
   hst_rate: 9.99
-  order_status_id: 
-  customer_id: 
+  status: 
+  customer: 
