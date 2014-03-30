@@ -8,7 +8,7 @@ one:
   postal_code: MyString
   email: MyString
   phone: MyString
-  province_id: 
+  province: 
 
 two:
   first_name: MyString
@@ -18,4 +18,4 @@ two:
   postal_code: MyString
   email: MyString
   phone: MyString
-  province_id: 
+  province: 
