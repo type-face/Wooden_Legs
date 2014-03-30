@@ -3,11 +3,11 @@
 one:
   quantity: 1
   price: 9.99
-  product_id: 
-  order_id: 
+  product: 
+  order: 
 
 two:
   quantity: 1
   price: 9.99
-  product_id: 
-  order_id: 
+  product: 
+  order: 
