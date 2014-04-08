@@ -44,5 +44,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+#Self-installed gems
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'haml'
+gem 'paperclip', '~> 4.1'
