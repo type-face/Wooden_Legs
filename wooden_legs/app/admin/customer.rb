@@ -14,5 +14,19 @@ ActiveAdmin.register Customer do
   #  permitted << :other if resource.something?
   #  permitted
   # end
+
+  index do
+    column :id
+    column :first_name
+    column :last_name
+    column :address
+    column :city
+    column :postal_code
+    column :email
+    column :phone
+    # column "Orders" do |customer|
+    #   link_to customer.order
+    # end
+  end
   
 end
