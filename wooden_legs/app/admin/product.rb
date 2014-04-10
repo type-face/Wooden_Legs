@@ -1,8 +1,9 @@
 ActiveAdmin.register Product do
 
+
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  permit_params :name, :description, :price, :stock_quantity, :category_id, :designer_id, :img_src
+  permit_params :name, :description, :price, :stock_quantity, :category_id, :designer_id, :image
   # or
   #
   # permit_params do
@@ -20,11 +21,16 @@ ActiveAdmin.register Product do
     end
     column :stock_quantity
     column :category
+    column "Image" do |product|
+      image_tag(product.image.url(:thumb), :height => '100')
+    end
+    
     column :updated_at
     default_actions
   end
 
-  form :html => { :enctype => "multipart/form-data" } do |f|
+
+  form multipart: true do |f|
     f.inputs "Product Details" do
       f.input :name
       f.input :description
@@ -32,10 +38,13 @@ ActiveAdmin.register Product do
       f.input :stock_quantity
       f.input :category_id,   as: :select,  collection: Category.all
       f.input :designer_id, as: :select, collection: Designer.all
-      #f.input :img_src
+      f.input :image, required: false, as: :file, 
+        hint: f.template.image_tag(f.object.image.url(:thumb)) #hint: taken from https://gist.github.com/jameslafa/6019438
     end
-    #f.buttons
+    f.actions
   end
+
+  
   
 
 end
