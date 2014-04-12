@@ -1,12 +1,16 @@
 class Product < ActiveRecord::Base
+  attr_writer :delete_image
+  
+  before_validation { self.image.clear if self.delete_image == '1' }
+
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, 
                             whiny: false, 
                             :url => "/assets/products/:id/:style/:filename",
                             :path => ":rails_root/public/assets/products/:id/:style/:filename"
 
 
-  validates_attachment :image, :content_type => {content_type: ["image/jpg", "image/jpeg", "image/gif", "image/png"]}, :size => { in: 0..30.kilobytes}
-  validates_attachment_presence :image
+  validates_attachment :image, :content_type => {content_type: ["image/jpg", "image/jpeg", "image/gif", "image/png"]}
+
 
   validates :name, :description, :price, :stock_quantity, :designer, :presence => true
   validates :name, :uniqueness => true
@@ -16,5 +20,10 @@ class Product < ActiveRecord::Base
   belongs_to :category
   belongs_to :designer
   has_many :line_items
+
+
+  def delete_image
+    @delete_image || false
+  end
 
 end

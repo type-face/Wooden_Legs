@@ -1,7 +1,26 @@
 WoodenLegs::Application.routes.draw do
+  get "store/index"
+  get "store/show"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'admin', to: 'admin#index', as: 'admin'
+
+
+  get     "products",          to: "products#index",   as: "products"
+  get     "products/new",      to: "products#new",     as: "new_product"
+  get     "products/:id",      to: "products#show",    as: "product"
+  post    "products",          to: "products#create"
+  get     "products/:id/edit", to: "products#edit",    as: "edit_product"
+  patch   "products/:id",      to: "products#update"
+  delete  "products/:id",      to: "products#destroy", as: "destroy_product"
+  
+  # Example resource route (maps HTTP verbs to controller actions automatically):
+    resources :customers
+    resources :orders
+    resources :designers
+    resources :provinces
+    resources :line_items
+    resources :categories
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -15,14 +34,6 @@ WoodenLegs::Application.routes.draw do
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-    resources :products
-    resources :customers
-    resources :orders
-    resources :designers
-    resources :provinces
-    resources :line_items
-    resources :categories
 
   # Example resource route with options:
   #   resources :products do
