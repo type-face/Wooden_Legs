@@ -4,5 +4,6 @@ class ProductController < ApplicationController
     @products = Product.all
   end
 
+
   
 end
