@@ -1,13 +1,14 @@
 class Product < ActiveRecord::Base
   attr_writer :delete_image
   
+  scope :chairs, -> {where(category: 'chairs')}
+
   before_validation { self.image.clear if self.delete_image == '1' }
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, 
                             whiny: false, 
                             :url => "/assets/products/:id/:style/:filename",
                             :path => ":rails_root/public/assets/products/:id/:style/:filename"
-
 
   validates_attachment :image, :content_type => {content_type: ["image/jpg", "image/jpeg", "image/gif", "image/png"]}
 
@@ -25,5 +26,13 @@ class Product < ActiveRecord::Base
   def delete_image
     @delete_image || false
   end
+
+  def self.search(search_terms)
+    search_terms = "%#{search_terms}%"
+
+    Product.where("name LIKE ? OR description LIKE ?", search_terms, search_terms)
+  end
+
+
 
 end

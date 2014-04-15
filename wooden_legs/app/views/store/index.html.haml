@@ -1,4 +1,11 @@
-
 %h2
   Store index
-=render partial: 'shared/product', collection: @products
+%p
+  =form_tag search_results_path, method: "get" do
+    = text_field_tag (:search_terms)
+    = submit_tag ("Search")
+%p
+  -@categories.each do |category|
+    =link_to category.name, filter_by_category_path(category)
+%p
+  =render partial: 'shared/product', collection: @products

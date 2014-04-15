@@ -1,33 +1,39 @@
 WoodenLegs::Application.routes.draw do
-  get "store/index"
-  get "store/show"
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-  get 'admin', to: 'admin#index', as: 'admin'
-
-
-  get     "products",          to: "product#index",   as: "products"
-  get     "products/new",      to: "product#new",     as: "new_product"
-  get     "products/:id",      to: "product#show",    as: "product"
-  post    "products",          to: "product#create"
-  get     "products/:id/edit", to: "product#edit",    as: "edit_product"
-  patch   "products/:id",      to: "product#update"
-  delete  "products/:id",      to: "product#destroy", as: "destroy_product"
-  
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-    resources :customers
-    resources :orders
-    resources :designers
-    resources :provinces
-    resources :line_items
-    resources :categories
-    resources :store
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'store#index'
+  root 'store#index'
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  #get 'admin', to: 'admin#index', as: 'admin'
+
+
+  # get     "products",          to: "product#index",   as: "products"
+  # get     "products/new",      to: "product#new",     as: "new_product"
+  # get     "products/:id",      to: "product#show",    as: "product"
+  # post    "products",          to: "product#create"
+  # get     "products/:id/edit", to: "product#edit",    as: "edit_product"
+  # patch   "products/:id",      to: "product#update"
+  # delete  "products/:id",      to: "product#destroy", as: "destroy_product"
+
+  get     "store",               to: "store#index",                 as: "products"
+  get     "products/:id",        to: "store#show",                  as: "product"
+  get     "store/category/:id",  to: "store#filter_by_category",    as: "filter_by_category"
+  get     "search",              to: "store#search_results",        as: "search_results"
+
+  # Example resource route (maps HTTP verbs to controller actions automatically):
+   #  resources :customers
+   #  resources :orders
+   #  resources :designers
+   #  resources :provinces
+   #  resources :line_items
+   #  resources :categories
+   #  resources :store
+
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
