@@ -1,7 +1,5 @@
 class Product < ActiveRecord::Base
   attr_writer :delete_image
-  
-  scope :chairs, -> {where(category: 'chairs')}
 
   before_validation { self.image.clear if self.delete_image == '1' }
 
