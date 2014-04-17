@@ -1,13 +1,13 @@
 .productDetail
   %h3 
     =@product.name
-  %span
-    =number_to_currency(@product.price)
-  %p
-    =@product.description
   %p
     Designer: 
     =@product.designer.company
+  %p
+    =@product.description
+  %span
+    =number_to_currency(@product.price)
   - if @product.image.present?
     %p
       =image_tag @product.image, height: '200'

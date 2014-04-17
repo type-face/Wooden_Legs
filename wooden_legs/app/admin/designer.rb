@@ -5,7 +5,7 @@ ActiveAdmin.register Designer do
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
   # permit_params :list, :of, :attributes, :on, :model
-  permit_params :company, :first_name, :last_name, :address, :city, :postal_code, :email, :province_id, :phone
+  permit_params :company, :first_name, :last_name, :address, :city, :postal_code, :email, :province_id, :phone, :website
   # or
   #
   # permit_params do

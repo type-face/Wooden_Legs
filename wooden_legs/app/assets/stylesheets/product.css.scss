@@ -1,13 +1,19 @@
+@import url(http://fonts.googleapis.com/css?family=Rambla:400,700);
+
 // Place all the styles related to the product controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#wrapper {
+	font-family: 'Rambla', sans-serif;
+}
 
 .product {
 	float: left;
 	width: 300px;
 	min-height: 320px;
 	border: 1px;
-	background-color: #eee;
+	box-shadow: 10px 10px 5px #888888;
 	margin: 5px;
 	padding: 15px;
 }

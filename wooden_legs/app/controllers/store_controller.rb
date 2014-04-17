@@ -1,7 +1,7 @@
 class StoreController < ApplicationController
+  before_filter :common_content
 
-  def index    
-    @categories = Category.all
+  def index        
     @products = Product.all 
   end
 
@@ -10,13 +10,16 @@ class StoreController < ApplicationController
   end
 
   def filter_by_category
-    @categories = Category.all
     @products = Product.where("category_id = ?", params[:id])
   end
 
   def search_results
-    @categories = Category.all
     @products = Product.search(params[:search_terms], params[:search_category])
   end
+
+  def common_content
+    @categories = Category.all.order(:name)
+  end
+
 
 end

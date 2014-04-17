@@ -1,11 +1,14 @@
 .product
   %h3 
     =product.name
-    =number_to_currency(product.price)
+
   - if product.image.present?  
     %p
-      =image_tag product.image, height: '200'
+      =image_tag product.image, height: '150'
+  %p
+    =number_to_currency(product.price)
   %p
     =link_to 'View details', product_path(product)
+
 
     
