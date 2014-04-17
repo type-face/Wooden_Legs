@@ -1,6 +1,5 @@
 class StoreController < ApplicationController
 
-
   def index    
     @categories = Category.all
     @products = Product.all 
@@ -15,12 +14,9 @@ class StoreController < ApplicationController
     @products = Product.where("category_id = ?", params[:id])
   end
 
-  def search
-    #
-  end
-
   def search_results
-    @products = Product.search(params[:search_terms])
+    @categories = Category.all
+    @products = Product.search(params[:search_terms], params[:search_category])
   end
 
 end

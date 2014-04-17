@@ -1,0 +1,7 @@
+%p
+  =form_tag search_results_path, method: "get" do
+    = text_field_tag(:search_terms) 
+    in
+    = collection_select(:search_category, :ids, @categories, :id, :name, prompt: "any") 
+    category.
+    = submit_tag("Search")

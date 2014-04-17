@@ -27,10 +27,15 @@ class Product < ActiveRecord::Base
     @delete_image || false
   end
 
-  def self.search(search_terms)
+  def self.search(search_terms, search_category)
     search_terms = "%#{search_terms}%"
+    search_category = search_category["ids"]
 
-    Product.where("name LIKE ? OR description LIKE ?", search_terms, search_terms)
+    if search_category.blank?
+      Product.where("name LIKE ?", search_terms).order(:name)
+    else
+      Product.where("name LIKE ? AND category_id = ?", search_terms, search_category).order(:name)
+    end
   end
 
 
