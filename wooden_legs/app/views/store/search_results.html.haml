@@ -2,3 +2,7 @@
 =render partial: 'search'
 
 =render partial: 'shared/product', collection: @products
+
+%p
+  %br/
+  =will_paginate @products
